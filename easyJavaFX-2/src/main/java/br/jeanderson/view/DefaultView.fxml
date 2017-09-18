@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.jeanderson.controller.DefaultController">
+   <children>
+      <ImageView fitHeight="456.0" fitWidth="582.0" layoutX="115.0" layoutY="5.0" opacity="0.3" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/easyJavaFXbackground.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="172.0" layoutY="14.0" text="Default View EasyJavaFX">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="188.0" layoutY="49.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="128.0" fitWidth="138.0" layoutX="236.0" layoutY="49.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/emojis_de_facebook_nuevos_en_png_19_by_imagenes_en_png-damby7i.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="148.0" layoutY="164.0" prefHeight="35.0" prefWidth="303.0" text="Você não especificou o arquivo FXML." textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="176.0" layoutY="207.0" prefHeight="35.0" prefWidth="250.0" text="You did not specify the FXML file." textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Button layoutX="207.0" layoutY="242.0" mnemonicParsing="false" onAction="#actionAcessarGitHub" text="Acessar GitHub da lib">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
