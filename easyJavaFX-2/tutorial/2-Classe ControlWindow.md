@@ -29,3 +29,5 @@ Veja que você tem tudo que precisa para trabalhar com os componentes da sua Jan
 ao utilizar o método **show(janelaPai)** que recebe uma Janela Pai, quando você for utilizar a mesma instancia para ter outras janelas pai, um novo Stage será
 **gerado automaticamente** para que a Janela possa ter várias janela pai, esse novo Stage terá as configurações que foram definidas na anotação **@DefineConfiguration** na classe de controller. então caso você tenha feito alguma alteração no seu Stage após a construção do objeto da classe ControlWindow você poderá perder.
 Então o **recomendado** é que você utilize para somente uma Janela pai, mas caso você não tenha feito alterações no seu stage, poderá utilizar para ter várias janelas pai.
+
+Veja que é bem tranquilo de se trabalhar. No próximo mostrarei a classe **EasyFXFunctions** que vai te dar uma ajudinha para você ter o controle da janela em sua própria classe de controller.
