@@ -4,10 +4,12 @@ import java.io.IOException;
 import java.lang.reflect.Field;
 
 import br.jeanderson.annotations.AutoCompleteComboBox;
+import br.jeanderson.annotations.ClearFields;
 import br.jeanderson.annotations.DefineConfiguration;
 import br.jeanderson.annotations.MaskFormatter;
 import br.jeanderson.componentes.EasyFXFunctions;
 import br.jeanderson.enums.Configuracoes;
+import br.jeanderson.util.FunctionAnnotations;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -117,6 +119,7 @@ public class ControlWindow<T> {
 	}
 
 	public void show() {
+		this.limparCampos();
 		this.stage.show();
 		this.stage.requestFocus();
 		this.root.requestFocus();
@@ -128,8 +131,15 @@ public class ControlWindow<T> {
 			((EasyFXFunctions) classController).afterShow();
 		}
 	}
+	
+	private void limparCampos() {
+		if(classController.getClass().isAnnotationPresent(ClearFields.class)) {
+			FunctionAnnotations.clearFieldsWithAnnotations(classController);
+		}
+	}
 
 	public void showAndWait() {
+		this.limparCampos();
 		this.stage.showAndWait();
 		this.stage.requestFocus();
 		this.root.requestFocus();
