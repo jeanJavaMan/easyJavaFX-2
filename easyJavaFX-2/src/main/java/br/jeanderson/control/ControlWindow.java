@@ -26,6 +26,11 @@ public class ControlWindow<T> {
 	private DefineConfiguration defineConfiguration;
 	private ControlWindow<?> windowOwner;
 
+	/**
+	 * Faz toda a construção da Janela baseado na anotação DefineConfiguration presente na classe de controller.
+	 * @see DefineConfiguration
+	 * @param classController Classe de Controller da Janela
+	 */
 	public ControlWindow(Class<T> classController) {
 		if (classController.isAnnotationPresent(DefineConfiguration.class)) {
 			this.defineConfiguration = classController.getAnnotation(DefineConfiguration.class);
@@ -118,6 +123,9 @@ public class ControlWindow<T> {
 		}
 	}
 
+	/**
+	 * Faz a exibição da Janela.
+	 */
 	public void show() {
 		this.limparCampos();
 		this.stage.show();
@@ -138,6 +146,9 @@ public class ControlWindow<T> {
 		}
 	}
 
+	/**
+	 * Faz a exibição e aguarda.
+	 */
 	public void showAndWait() {
 		this.limparCampos();
 		this.stage.showAndWait();
@@ -146,16 +157,27 @@ public class ControlWindow<T> {
 		callAfterShow();
 	}
 
+	/**
+	 * Faz a exibição da Janela, tendo dependência de uma janela pai.
+	 * @param windowFather Janela Pai
+	 */
 	public void show(ControlWindow<?> windowFather) {
 		preparaOwnerParaStage(windowFather);
 		this.show();
 	}
 
+	/**
+	 * Faz a exibição e aguarda. tendo dependência de uma janela pai.
+	 * @param windowFather Janela Pai
+	 */
 	public void showAndWait(ControlWindow<?> windowFather) {
 		this.preparaOwnerParaStage(windowFather);
 		this.showAndWait();
 	}
 
+	/**
+	 * Fecha a Janela.
+	 */
 	public void close() {
 		this.stage.close();
 	}
@@ -173,26 +195,50 @@ public class ControlWindow<T> {
 		}
 	}
 
+	/**
+	 * Retorna o Stage referente a janela.
+	 * @return Stage
+	 */
 	public Stage getStage() {
 		return stage;
 	}
 
+	/**
+	 * Retorna a Scene referente a janela.
+	 * @return
+	 */
 	public Scene getScene() {
 		return scene;
 	}
 
+	/**
+	 * Retorna o Parent referente a janela.
+	 * @return
+	 */
 	public Parent getRoot() {
 		return root;
 	}
 
+	/**
+	 * Retorna o FXMLLoad usado para carregar o arquivo FMXL.
+	 * @return
+	 */
 	public FXMLLoader getFxmlLoader() {
 		return fxmlLoader;
 	}
 
+	/**
+	 * Retorna a classe de controller da janela.
+	 * @return
+	 */
 	public T getController() {
 		return classController;
 	}
 
+	/**
+	 * Retorna as configurações utilizadas para a construção da janela.
+	 * @return
+	 */
 	public DefineConfiguration getDefineConfiguration() {
 		return defineConfiguration;
 	}
