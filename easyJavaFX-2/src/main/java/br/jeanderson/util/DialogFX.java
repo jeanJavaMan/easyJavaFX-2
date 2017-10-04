@@ -59,7 +59,9 @@ public class DialogFX {
      * @param msg Mensagem a ser exibida.
      */
     public static void showMessageAndWait(String msg) {
-        createDialogMessage("Informação", msg, DialogType.INFORMATION).showAndWait();
+        Stage stage = createDialogMessage("Informação", msg, DialogType.INFORMATION);
+        stage.showAndWait();
+        stage.requestFocus();
     }
 
     /**
@@ -70,7 +72,9 @@ public class DialogFX {
      * @param title Titulo do Dialog.
      */
     public static void showMessageAndWait(String msg, String title) {
-       createDialogMessage(title, msg, DialogType.INFORMATION).showAndWait();
+       Stage stage = createDialogMessage(title, msg, DialogType.INFORMATION);
+       stage.showAndWait();
+       stage.requestFocus();
     }
 
     /**
@@ -81,7 +85,9 @@ public class DialogFX {
      * @param dialogType Tipo do Dialog.
      */
     public static void showMessageAndWait(String msg, String title, DialogType dialogType) {
-        createDialogMessage(title, msg, dialogType).showAndWait();
+        Stage stage = createDialogMessage(title, msg, dialogType);
+        stage.showAndWait();
+        stage.requestFocus();
     }
 
     /**
@@ -127,6 +133,7 @@ public class DialogFX {
             dialogInput.preparaExibicao(header, msg);
             dialogInput.exibirAnimacao();
             stage.showAndWait();
+            stage.requestFocus();
             return dialogInput.getInput();
         } catch (IOException ex) {
             Logger.getLogger(DialogFX.class.getName()).log(Level.SEVERE, null, ex);
@@ -166,6 +173,7 @@ public class DialogFX {
             dialog.prepara(msg);
             dialog.exibirAnimacao();
             stage.showAndWait();
+            stage.requestFocus();
             return dialog.getResultado();
         } catch (IOException ex) {
             Logger.getLogger(DialogFX.class.getName()).log(Level.SEVERE, null, ex);
