@@ -10,6 +10,7 @@ import br.jeanderson.enums.DialogType;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -60,6 +61,7 @@ public class DialogFX {
      */
     public static void showMessageAndWait(String msg) {
         Stage stage = createDialogMessage("Informação", msg, DialogType.INFORMATION);
+        stage.initModality(Modality.APPLICATION_MODAL);
         stage.showAndWait();
         stage.requestFocus();
     }
@@ -73,6 +75,7 @@ public class DialogFX {
      */
     public static void showMessageAndWait(String msg, String title) {
        Stage stage = createDialogMessage(title, msg, DialogType.INFORMATION);
+       stage.initModality(Modality.APPLICATION_MODAL);
        stage.showAndWait();
        stage.requestFocus();
     }
@@ -86,6 +89,7 @@ public class DialogFX {
      */
     public static void showMessageAndWait(String msg, String title, DialogType dialogType) {
         Stage stage = createDialogMessage(title, msg, dialogType);
+        stage.initModality(Modality.APPLICATION_MODAL);
         stage.showAndWait();
         stage.requestFocus();
     }
@@ -132,8 +136,10 @@ public class DialogFX {
             stage.setTitle(title);
             dialogInput.preparaExibicao(header, msg);
             dialogInput.exibirAnimacao();
+            stage.initModality(Modality.APPLICATION_MODAL);
             stage.showAndWait();
             stage.requestFocus();
+            root.requestFocus();
             return dialogInput.getInput();
         } catch (IOException ex) {
             Logger.getLogger(DialogFX.class.getName()).log(Level.SEVERE, null, ex);
@@ -153,6 +159,7 @@ public class DialogFX {
             stage.setTitle(title);
             dialog.prepara(stage, msg, type);
             dialog.exibirAnimacao();
+            root.requestFocus();
             return stage;
         } catch (IOException ex) {
             Logger.getLogger(DialogFX.class.getName()).log(Level.SEVERE, null, ex);
@@ -172,8 +179,10 @@ public class DialogFX {
             stage.setTitle(title);
             dialog.prepara(msg);
             dialog.exibirAnimacao();
-            stage.showAndWait();
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.showAndWait();            
             stage.requestFocus();
+            root.requestFocus();
             return dialog.getResultado();
         } catch (IOException ex) {
             Logger.getLogger(DialogFX.class.getName()).log(Level.SEVERE, null, ex);
